@@ -1,11 +1,24 @@
+Superstore Database Project
+In this project, you'll write your own SQL code to query a Superstore Database that I made. This is an example of data you might work with at a company like Costco etc.
+
+#1. Order the items by price
 SELECT * 
 FROM superstore 
 ORDER BY price;
+
+#2.Show a statistic about the item prices (e.g., average price)
+
 SELECT AVG(price) AS average_price 
 FROM superstore;
+
+#3.Show a statistic about the price for items in the category of "Kitchen Supplies"
+
 SELECT AVG(price) AS average_price 
 FROM superstore 
 WHERE category = 'Kitchen Supplies';
+
+#4.Come up with your own question and answer it using SQL
+
 SELECT COUNT(*) AS electronics_in_stock 
 FROM superstore 
 WHERE category = 'Electronics' AND stock_quantity > 0;
