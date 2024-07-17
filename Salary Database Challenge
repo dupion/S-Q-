@@ -1,0 +1,16 @@
+Calculate how much is spent per year on the salaries for each department where the total spent on the salaries is at least $300,000. 
+Your results table should include the department name and the total spent on salaries in that department.
+#1. 
+SELECT department, SUM(salary) as total_spent
+FROM employees
+GROUP BY department
+HAVING total_spent >= 300000;
+
+Select all the departments that pay an average of at least $70,000 per year. Your results table should include the department and average salary for that department, 
+and you should rename the average salary column using an alias. 
+#2. 
+SELECT department, AVG(salary) as avg_salary
+FROM employees
+GROUP BY department
+HAVING avg_salary>=70000;
+
