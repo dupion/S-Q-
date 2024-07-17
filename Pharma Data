@@ -1,0 +1,20 @@
+Which medications has Dr. Garcia prescribed? 
+#1. 
+SELECT distinct
+med.medication_name,
+scripts.doctor_name
+FROM medication med
+INNER JOIN prescriptions scripts
+ON med.person_ID=scripts.person_ID
+WHERE scripts.doctor_name = 'Dr. Garcia'
+;
+
+Zonkify is no longer on the market. When were all the Zonkify prescriptions last filled? 
+#2. 
+SELECT
+scripts.date_filled
+FROM medication med
+INNER JOIN prescriptions scripts
+ON med.person_ID=scripts.person_ID
+WHERE med.medication_name = 'Zonkify'
+;
