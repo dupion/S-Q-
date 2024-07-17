@@ -1,0 +1,51 @@
+Select all the customer IDs, customer names, and customer emails, as well as the shipping methods each customer used. 
+Your results should be in order by customer ID
+#1. 
+SELECT distinct
+customers.customer_ID
+,customers.customer_name
+,customers.contact_email
+,shipments.shipping_method
+FROM customers
+LEFT JOIN shipments
+ON customers.customer_ID = shipments.sender_ID
+ORDER BY customers.customer_ID asc
+;
+(We use a left join because we want all the customer names and emails and the shipping method each customer has used.)
+
+Select all the customer IDs, customer names, customer emails, and shipping methods from the database, but only for the customers we have detailed 
+shipping history for (ie, customers for whom we have information in the shipments table). Your results should be in order by customer ID. 
+#2. 
+SELECT distinct
+customers.customer_ID
+,customers.customer_name
+,customers.contact_email
+,shipments.shipping_method
+FROM customers
+INNER JOIN shipments
+ON customers.customer_ID = shipments.sender_ID
+ORDER BY customers.customer_ID asc
+;
+
+(We used an inner join because we only wanted names, emails, and shipping method for the customers we have detailed shipping history for.)
+
+Select all the customer IDs, customer names, customer emails, and shipping methods from the database, but only for the customers we have detailed
+shipping history for (ie, customers for whom we have information in the shipments table), and who have only used the 'Standard' shipping method 
+before. Your results should be in order by customer ID.
+
+#3.
+SELECT distinct
+customers.customer_ID
+,customers.customer_name
+,customers.contact_email
+,shipments.shipping_method
+FROM customers
+INNER JOIN shipments
+ON customers.customer_ID = shipments.sender_ID
+WHERE shipments.shipping_method = 'Standard'
+ORDER BY customers.customer_ID asc
+;
+
+(We used an inner join because we only wanted names, emails, and shipping method for the customers we have detailed shipping history for.
+We also used a WHERE clause because we only wanted customers who used the "Standard" shipping method in the past.)
+
