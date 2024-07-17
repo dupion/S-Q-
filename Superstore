@@ -1,0 +1,11 @@
+SELECT * 
+FROM superstore 
+ORDER BY price;
+SELECT AVG(price) AS average_price 
+FROM superstore;
+SELECT AVG(price) AS average_price 
+FROM superstore 
+WHERE category = 'Kitchen Supplies';
+SELECT COUNT(*) AS electronics_in_stock 
+FROM superstore 
+WHERE category = 'Electronics' AND stock_quantity > 0;
